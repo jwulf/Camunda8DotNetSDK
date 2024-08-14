@@ -57,7 +57,6 @@ public class OAuthTokenProvider : IAccessTokenProvider
         //
         // Defined here https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/
         var result = await httpResponseMessage.Content.ReadAsStringAsync();
-        Console.WriteLine(result);
         var token = AccessToken.FromJson(result);
         // logger?.LogDebug("Received access token for {Audience}", audience);
         return token;

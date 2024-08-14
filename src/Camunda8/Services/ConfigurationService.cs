@@ -2,7 +2,6 @@ using Microsoft.Extensions.Configuration;
 
 public class ConfigurationService
 {
-    // private readonly IConfiguration _configuration;
     public Camunda8Configuration Configuration { get; private set; }
     public ConfigurationService(IConfiguration environment,Camunda8Configuration? explicitConfiguration = null)
     {

@@ -11,7 +11,7 @@ public class TokenProviderService
         _tokenProvider = configuration.CAMUNDA_AUTH_STRATEGY switch
         {
             // Camunda8AuthStrategy.Basic => new BasicTokenProvider(configuration),
-            Camunda8AuthStrategy.OAuth => new MemoryCache(new OAuthTokenProvider(configuration)),
+            Camunda8AuthStrategy.OAuth => new MemoryCache(new DiskCache(configuration, new OAuthTokenProvider(configuration))),
             Camunda8AuthStrategy.None => new NoTokenProvider(configuration),
             _ => throw new ArgumentOutOfRangeException($"CAMUNDA_AUTH_STRATEGY {configuration.CAMUNDA_AUTH_STRATEGY} is not set to a valid value")
         };

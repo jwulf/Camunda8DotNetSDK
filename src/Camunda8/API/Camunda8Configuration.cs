@@ -35,8 +35,8 @@ public class Camunda8Configuration
     public string CAMUNDA_OPTIMIZE_OAUTH_AUDIENCE { get; set; } = "optimize.camunda.io";
     /** The audience parameter for a Console OAuth token request. Defaults to api.cloud.camunda.io */
     public string CAMUNDA_CONSOLE_OAUTH_AUDIENCE { get; set; } = "api.cloud.camunda.io";
-    /** The directory where the token cache is stored */
-    public string CAMUNDA_TOKEN_CACHE_DIR { get; set; } = String.Empty;
+    /** The directory where the token cache is stored. Defaults to $HOME/.camunda */
+    public string CAMUNDA_TOKEN_CACHE_DIR { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".camunda");
     /** Disable the token cache */
     public bool CAMUNDA_TOKEN_DISK_CACHE_DISABLE { get; set; } = false;
     /** The path to a custom root certificate */
