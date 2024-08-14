@@ -33,7 +33,6 @@ public class OAuthTokenProviderTest
                         Assert.Equal("clientSecret", parsedBody["client_secret"]);
                         Assert.Equal("client_credentials", parsedBody["grant_type"]);
                         Assert.Equal("zeebe.camunda.io", parsedBody["audience"]);
-                        foreach (var key in parsedBody.AllKeys) ;
 
                         var response = new { access_token = "dummy_token", scope = "5c34c0a7", expires_in = 61539, token_type = "Bearer" };
                         context.Response.ContentType = "application/json";
